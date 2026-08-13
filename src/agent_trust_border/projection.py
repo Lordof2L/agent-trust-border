@@ -1,54 +1,57 @@
-"""Downstream human projection. It cannot influence the receiver verdict."""
+"""Deterministic downstream human projection; never an admission input."""
 
 from __future__ import annotations
 
-import io
 from collections.abc import Sequence
-
-from rich.console import Console
-from rich.table import Table
+from html import escape
 
 
 def render_trace_html(rows: Sequence[dict]) -> str:
-    buffer = io.StringIO()
-    console = Console(
-        file=buffer,
-        record=True,
-        force_terminal=True,
-        color_system="truecolor",
-        width=120,
-    )
-    console.print("[bold blue]Agent Trust Border[/bold blue] — synthetic offline trace")
-    console.print(
-        "[dim]Integrity, identity, authority, evidence and world truth remain separate. "
-        "No requested action is executed.[/dim]\n"
-    )
-    table = Table(show_header=True, header_style="bold", box=None)
-    table.add_column("Step", style="bold")
-    table.add_column("Verdict")
-    table.add_column("Reason")
-    table.add_column("Effective scope")
-    table.add_column("Action")
+    body_rows: list[str] = []
     for row in rows:
+        verdict = str(row["verdict"])
         resources = row["effective_scope"]["resources"]
-        scope = ", ".join(resources) if resources else "none"
-        verdict = row["verdict"]
-        verdict_style = {
-            "ADMIT": "green",
-            "DENY": "red",
-            "UNKNOWN": "yellow",
-        }.get(verdict, "white")
-        table.add_row(
-            row["step"],
-            f"[{verdict_style}]{verdict}[/{verdict_style}]",
-            ", ".join(row["reason_codes"]),
-            scope,
-            "not executed",
+        scope = ", ".join(str(item) for item in resources) if resources else "none"
+        reason = ", ".join(str(item) for item in row["reason_codes"])
+        body_rows.append(
+            "        <tr>"
+            f"<th>{escape(str(row['step']))}</th>"
+            f"<td class=\"{escape(verdict.lower())}\">{escape(verdict)}</td>"
+            f"<td>{escape(reason)}</td>"
+            f"<td>{escape(scope)}</td>"
+            "<td>not executed</td></tr>"
         )
-    console.print(table)
-    console.print(
-        "\n[dim]Boundary: synthetic pinned adapter fixture; real DSSE/Ed25519 grant and "
-        "receipt operations; no live A2A/GB/Z conformance and no world-truth claim.[/dim]"
-    )
-    html = console.export_html(inline_styles=True)
-    return "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
+
+    lines = [
+        "<!doctype html>",
+        '<html lang="en">',
+        "<head>",
+        '  <meta charset="utf-8">',
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">',
+        "  <title>Agent Trust Border — synthetic offline trace</title>",
+        "  <style>",
+        "    body{font:15px ui-monospace,monospace;margin:2rem;color:#172033;background:#f7f9fc}",
+        "    table{border-collapse:collapse;width:100%;background:white}",
+        "    th,td{border:1px solid #d8deea;padding:.7rem;text-align:left}",
+        "    .admit{color:#08783e}.deny{color:#a32626}.unknown{color:#8a6200}",
+        "    .boundary{max-width:80ch;color:#4a5568}",
+        "  </style>",
+        "</head>",
+        "<body>",
+        "  <h1>Agent Trust Border</h1>",
+        "  <p class=\"boundary\">Synthetic offline trace. Integrity, identity, authority, "
+        "evidence and world truth remain separate. No requested action is executed.</p>",
+        "  <table>",
+        "    <thead><tr><th>Step</th><th>Verdict</th><th>Reason</th>"
+        "<th>Effective scope</th><th>Action</th></tr></thead>",
+        "    <tbody>",
+        *body_rows,
+        "    </tbody>",
+        "  </table>",
+        "  <p class=\"boundary\">Boundary: synthetic pinned adapter fixture; real "
+        "DSSE/Ed25519 grant and receipt operations; no live A2A/GB/Z conformance and "
+        "no world-truth claim.</p>",
+        "</body>",
+        "</html>",
+    ]
+    return "\n".join(lines) + "\n"
