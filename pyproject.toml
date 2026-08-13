@@ -1,0 +1,42 @@
+[project]
+name = "agent-trust-border"
+version = "0.1.0"
+description = "Offline loss-aware admission kernel for synthetic agent trust-boundary fixtures"
+readme = "README.md"
+authors = [{ name = "Lukáš Litvák" }]
+license = "LicenseRef-Proprietary"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic==2.13.4",
+    "rfc8785==0.1.4",
+    "securesystemslib[crypto]==1.4.0",
+]
+
+[project.urls]
+Repository = "https://github.com/Lordof2L/agent-trust-border"
+Evidence = "https://lordof2l.github.io/agent-trust-border/"
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "hypothesis==6.165.5",
+    "pip-audit==2.10.1",
+    "pytest==9.1.1",
+    "rich==15.0.0",
+    "ruff==0.16.3",
+    "typer==0.27.1",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]

@@ -1,0 +1,10 @@
+{
+  "payload": "eyJhY3Rpb24iOiJkZXBsb3kiLCJhdWQiOiJkZW1vOmJvcmRlcjpyZWNlaXZlci1hIiwiY2FuX2RlbGVnYXRlIjpmYWxzZSwiY2hhbGxlbmdlX2hhc2giOiJzaGEyNTY6MDI4ZTM2YzcxMjNjYzBkN2QwNDlkNzNjNjVjMjg2YzEzZDE2YWY5OGFhYThhNmU4MjhlZDg1YjQxYzQ4MDMzMiIsImV4cCI6IjIwMjYtMDgtMTNUMTI6MDU6MDBaIiwiaWF0IjoiMjAyNi0wOC0xM1QxMTo1OTowMFoiLCJpc3MiOiJkZW1vOmtleTpvcHMtYWRtaW4iLCJqdGkiOiJkZW1vOmdyYW50OjAwMDEiLCJtYXhfcnVucyI6MSwibmJmIjoiMjAyNi0wOC0xM1QxMTo1OTowMFoiLCJub25jZSI6IjAwMDEwMjAzMDQwNTA2MDcwODA5MGEwYjBjMGQwZTBmIiwicG9saWN5X2hhc2giOiJzaGEyNTY6YWU5NDNmMjg3ODE5NjRlZDU1YzZhOGNjZjU2MjgyODJjN2Q2MTAwZTM5ZWZjYWJkOWJkZjQ5MzI0MWI0NGQxYyIsInJlcXVlc3RfaGFzaCI6InNoYTI1NjozYWRkN2U2NWViZGRmYmJiZjg1NWVhOTQ0YjA4YTc1MzFkMTIyMTk4MzEzY2M4NWMzODc3M2EyOGQ2MGFlZDBiIiwicmVzb3VyY2UiOiJzYW5kYm94OmRlbW8iLCJzdWIiOiJkZW1vOmFnZW50OmRlcGxveS1ib3QifQ==",
+  "payloadType": "application/vnd.agent-trust-border.grant.v0+json",
+  "signatures": [
+    {
+      "keyid": "demo:key:ops-admin-grant",
+      "sig": "ynUWsXdSlc8NPXkJAz54ClIQLqPRbwt7PaSK75FVMuS+LFzVzGDtyiCu4mwB/NIgIukCs8+oMRK7GA+YFqNZAw=="
+    }
+  ]
+}

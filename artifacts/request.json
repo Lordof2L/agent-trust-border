@@ -1,0 +1,47 @@
+{
+  "audience": "demo:border:receiver-a",
+  "claims": [
+    {
+      "evidence_refs": [
+        "demo:evidence:capability:1"
+      ],
+      "id": "demo:claim:capability:1",
+      "kind": "CAPABILITY",
+      "object": {
+        "action": "deploy",
+        "resource": "sandbox:demo"
+      },
+      "predicate": "agent.can_propose",
+      "subject": "demo:agent:deploy-bot"
+    }
+  ],
+  "expires_at": "2026-08-13T12:05:00Z",
+  "issued_at": "2026-08-13T11:59:00Z",
+  "issuer": {
+    "id": "demo:agent:deploy-bot",
+    "key_id": "demo:key:deploy-bot-request"
+  },
+  "mapping": {
+    "hash": "sha256:2650f39eaa4e20e09ef91bf834250c9ddf5e504711c8a74ed488def9b24fa661",
+    "id": "a2a-to-strict-receiver/0.1"
+  },
+  "message_id": "demo:msg:0001",
+  "nonce": "000102030405060708090a0b0c0d0e0f",
+  "requested_action": {
+    "constraints": {
+      "max_runs": 1
+    },
+    "resource": "sandbox:demo",
+    "verb": "deploy"
+  },
+  "schema": "border-envelope/0.1",
+  "source": {
+    "document_hash": "sha256:7ce312ef1965e3138de885eba0b700a8d19135b2df210f4e346182b34fb96849",
+    "standard": "A2A",
+    "version": "1.0"
+  },
+  "subject": {
+    "id": "demo:agent:deploy-bot",
+    "id_kind": "synthetic-demo-agent"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "demo_only": true,
+  "keys": {
+    "demo:key:border-receiver-a": {
+      "keytype": "ed25519",
+      "keyval": {
+        "public": "c41bccf0edb6c42f7f0d6b0f2a96eaba34ef7375ee87a1f5d6b7f1728929cb85"
+      },
+      "scheme": "ed25519"
+    },
+    "demo:key:deploy-bot-request": {
+      "keytype": "ed25519",
+      "keyval": {
+        "public": "17547aa8cfa695c9baf61e36ccf7de4db776b2cae224ba88942310c98d90baf1"
+      },
+      "scheme": "ed25519"
+    },
+    "demo:key:ops-admin-grant": {
+      "keytype": "ed25519",
+      "keyval": {
+        "public": "e820cd1556c9fb2d7b48eb4dfd215877004eeadbf43157915071aa7c13087d9c"
+      },
+      "scheme": "ed25519"
+    },
+    "demo:key:rogue": {
+      "keytype": "ed25519",
+      "keyval": {
+        "public": "8452292d4e9a3af526d9c25c3169913da49726be5cbb44f7d3a34ed49b900047"
+      },
+      "scheme": "ed25519"
+    }
+  }
+}

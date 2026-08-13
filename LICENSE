@@ -1,0 +1,25 @@
+Agent Trust Border Source-Available Licence
+Copyright (c) 2026 Lukáš Litvák. All rights reserved.
+
+No open-source licence is granted for the original project code, documentation,
+design, or media in this repository.
+
+Solely for evaluating the Agent Trust Border entry in NTU InnovateX 2026, the
+competition organisers and judges may access, copy, execute, and internally
+reproduce this repository. That permission is non-exclusive, non-transferable,
+limited to competition evaluation, and ends when evaluation and related audit
+or record-retention duties are complete.
+
+GitHub users retain only the rights necessarily granted by GitHub's Terms of
+Service for viewing and forking a public repository. No permission is granted
+to use, modify, distribute, sublicense, sell, deploy, or create derivative works
+from the original project material for any other purpose.
+
+Third-party dependencies and standards referenced by this project are not
+covered by these restrictions; they remain governed by their respective
+licences and terms. See THIRD_PARTY-NOTICES.md.
+
+THE PROJECT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT OWNER IS
+NOT LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE PROJECT.

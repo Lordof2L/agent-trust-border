@@ -1,0 +1,12 @@
+{
+  "admit-receipt.dsse.json": "df5f5e240ceb934fd1e55884ed45f233894fec844b5c8d75e1868a617b39809a",
+  "challenge.json": "808490fed47090ceb156cd72502dbe31304c6e3e58fc132131aa9cf0db8df379",
+  "deny-receipt.dsse.json": "b754751d540a6c18d21e4b634b6ece861a8c8a7db480c78df2ba05e45f58dde4",
+  "grant.dsse.json": "6b0e78fef3d3c452f24d5fb96e31bfcf74fa4fae7a52f86efa29f23381355a2f",
+  "public-keys.json": "51c9e74edaceab5b6eb4e5f58a9bc50dbaf0cd4a60d59f6bdda5a0f37ff3f79c",
+  "replay-receipt.dsse.json": "5f9a7500322beba40172e3098105f99831b9ef28c050b8caa015d3d02f266d18",
+  "request.json": "df2ee1018b143857d9a2c203156b403382f246fb326697a08e2eda33f2004ab1",
+  "trace.html": "3aeaf76a05cb4018a72c1aaaa2e36f7b43908b81c1adc15c003a4f14b524e692",
+  "trace.json": "6a6ca837382ac0401556ba51e7f336978c23b50386f061b4ba7a332ae4f1f3a9",
+  "unknown-receipt.dsse.json": "8b9f49efc70618c2e06b2a1ced702995ca9651506ca9a13963799bd1fdab4ab4"
+}

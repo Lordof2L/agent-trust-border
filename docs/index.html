@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A recorded, deterministic proof explorer for receiver-owned AI agent admission decisions.">
+    <meta name="theme-color" content="#07111f">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>Agent Trust Border — Evidence Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Agent Trust Border home">
+        <span class="brand-mark" aria-hidden="true">ATB</span>
+        <span>Agent Trust Border</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#proof">Proof</a>
+        <a href="#boundary">Boundary</a>
+        <a href="https://github.com/Lordof2L/agent-trust-border">Source</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="eyebrow"><span class="status-dot"></span> Static synthetic evidence · no action execution</div>
+        <h1>A valid signature is not permission.</h1>
+        <p class="lede">
+          Agent Trust Border prevents missing trust semantics from being silently upgraded
+          when an external AI agent crosses into a receiver's system.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#proof">Explore the decision trace</a>
+          <a class="button secondary" href="Agent-Trust-Border-NTU-InnovateX-2026.pdf">View the 5-slide brief</a>
+        </div>
+        <div class="axis-strip" aria-label="Trust axes remain separate">
+          <span>Integrity</span><i>≠</i><span>Identity</span><i>≠</i><span>Authority</span><i>≠</i><span>Evidence</span><i>≠</i><span>World truth</span>
+        </div>
+      </section>
+
+      <section class="metrics shell" aria-label="Executed proof metrics">
+        <article><strong>20/20</strong><span>named security cases pass</span></article>
+        <article><strong>2,000</strong><span>deterministic case executions</span></article>
+        <article><strong>DSSE</strong><span>real Ed25519 grant + receipts</span></article>
+        <article><strong>0</strong><span>requested actions executed</span></article>
+      </section>
+
+      <section id="proof" class="proof shell">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Interactive evidence explorer</p>
+            <h2>Same agent. Different authority. Different verdict.</h2>
+          </div>
+          <p>This page replays committed evidence. It does not execute the Python kernel or any requested action.</p>
+        </div>
+
+        <div class="step-tabs" role="tablist" aria-label="Decision trace steps">
+          <button class="step-tab active" role="tab" aria-selected="true" data-step="0"><b>01</b><span>Capability only</span></button>
+          <button class="step-tab" role="tab" aria-selected="false" data-step="1"><b>02</b><span>Exact trusted grant</span></button>
+          <button class="step-tab" role="tab" aria-selected="false" data-step="2"><b>03</b><span>Production mutation</span></button>
+          <button class="step-tab" role="tab" aria-selected="false" data-step="3"><b>04</b><span>Consumed grant replay</span></button>
+        </div>
+
+        <div class="decision-grid">
+          <article class="decision-card">
+            <div class="decision-topline">
+              <span id="verdict" class="verdict unknown">UNKNOWN</span>
+              <span id="stepLabel" class="mono">capability-only</span>
+            </div>
+            <h3 id="reason">MISSING_AUTHORIZATION</h3>
+            <p id="explanation">A declared deploy capability is not a receiver-trusted operation grant. The border emits an exact challenge and refuses admission.</p>
+            <dl>
+              <div><dt>Effective resource</dt><dd id="resource">none</dd></div>
+              <div><dt>Allowed action</dt><dd id="action">none</dd></div>
+              <div><dt>Maximum runs</dt><dd id="maxRuns">none</dd></div>
+              <div><dt>Action executed</dt><dd class="safe">false</dd></div>
+            </dl>
+          </article>
+
+          <article class="receipt-card">
+            <div class="receipt-heading">
+              <span>Signed BorderReceipt</span>
+              <a id="receiptLink" href="evidence/unknown-receipt.dsse.json">raw DSSE ↗</a>
+            </div>
+            <div class="hash-row"><span>receipt</span><code id="receiptId">br_886de…0392</code></div>
+            <div class="hash-row"><span>challenge</span><code id="challengeId">ch_b76af…b54f</code></div>
+            <div class="hash-row"><span>world truth</span><code>OUT_OF_SCOPE</code></div>
+            <div class="receipt-seal">
+              <span class="seal-icon">✓</span>
+              <div><strong>Offline-verifiable</strong><small>Request, policy, mapping and trust-profile hashes are bound into the signed receipt.</small></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="architecture shell">
+        <p class="kicker">Receiver-owned control plane</p>
+        <h2>Translate semantics. Never invent trust.</h2>
+        <div class="flow" aria-label="Agent Trust Border flow">
+          <article><span>1</span><h3>Strict ingress</h3><p>Bounded schema, canonical bytes and closed crypto profile.</p></article>
+          <i>→</i>
+          <article><span>2</span><h3>Loss ledger</h3><p>Record every missing, weaker or conflicting trust predicate.</p></article>
+          <i>→</i>
+          <article><span>3</span><h3>Receiver policy</h3><p>Scope becomes request ∩ trusted grant ∩ local policy.</p></article>
+          <i>→</i>
+          <article><span>4</span><h3>Signed receipt</h3><p>Replayable ADMIT, DENY or UNKNOWN explanation.</p></article>
+        </div>
+      </section>
+
+      <section id="boundary" class="boundary shell">
+        <div>
+          <p class="kicker">Truth boundary</p>
+          <h2>A falsifiable slice, not a gateway promise.</h2>
+        </div>
+        <div class="boundary-columns">
+          <article>
+            <h3>Proved here</h3>
+            <ul>
+              <li>Deterministic receiver-owned admission for one synthetic profile</li>
+              <li>Real DSSE/Ed25519 grant and receipt operations</li>
+              <li>Exact challenge binding, least-authority scope and one-use replay control</li>
+              <li>Independent offline receipt verification</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Not claimed</h3>
+            <ul>
+              <li>World truth, benign intent or future agent behaviour</li>
+              <li>Production key security, durability or distributed atomicity</li>
+              <li>Live A2A, Pramana, ACPs or GB/Z conformance</li>
+              <li>Production deployment, users, revenue or adoption</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <span>Agent Trust Border · NTU InnovateX 2026 Stage 1</span>
+      <span>Public source · All rights reserved</span>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

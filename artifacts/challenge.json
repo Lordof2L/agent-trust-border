@@ -1,0 +1,25 @@
+{
+  "audience": "demo:agent:deploy-bot",
+  "challenge_id": "ch_b76aff8d4302a828fe07b54f",
+  "expires_at": "2026-08-13T12:03:00Z",
+  "issued_at": "2026-08-13T12:00:00Z",
+  "mapping_hash": "sha256:2650f39eaa4e20e09ef91bf834250c9ddf5e504711c8a74ed488def9b24fa661",
+  "nonce": "000102030405060708090a0b0c0d0e0f",
+  "policy_hash": "sha256:ae943f28781964ed55c6a8ccf5628282c7d6100e39efcabd9bdf493241b44d1c",
+  "request_hash": "sha256:3add7e65ebddfbbbf855ea944b08a7531d122198313cc85c38773a28d60aed0b",
+  "requirements": [
+    {
+      "acceptable_issuers": [
+        "demo:key:ops-admin"
+      ],
+      "action": "deploy",
+      "max_age_seconds": 300,
+      "proof_kind": "AUTHORIZATION",
+      "reason": "MISSING_AUTHORIZATION",
+      "resource": "sandbox:demo",
+      "subject": "demo:agent:deploy-bot"
+    }
+  ],
+  "schema": "border-challenge/0.1",
+  "subject": "demo:agent:deploy-bot"
+}

@@ -1,0 +1,10 @@
+Agent Trust Border Stage-1 prototype
+Copyright (c) 2026 Lukáš Litvák. All rights reserved.
+
+Original project material is source-available under the repository LICENSE; it
+is not open source. Dependencies retain their own licences as recorded in
+THIRD_PARTY-NOTICES.md. No upstream source code is vendored.
+
+All `demo:` identities and deterministically derived keys are synthetic,
+publicly reproducible test material. They carry no external authority and must
+never be used as credentials.

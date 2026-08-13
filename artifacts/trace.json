@@ -1,0 +1,89 @@
+{
+  "proof_boundary": {
+    "action_execution_path": false,
+    "demo_only": true,
+    "fixtures": "synthetic-offline",
+    "grant_and_receipt_crypto": "DSSE/Ed25519",
+    "live_protocol_conformance": false,
+    "source_integrity": "receiver-owned pinned adapter result",
+    "world_truth_proven": false
+  },
+  "rows": [
+    {
+      "action_executed": false,
+      "challenge_id": "ch_b76aff8d4302a828fe07b54f",
+      "effective_scope": {
+        "actions": [],
+        "constraints": {
+          "max_runs": null
+        },
+        "resources": []
+      },
+      "reason_codes": [
+        "MISSING_AUTHORIZATION"
+      ],
+      "receipt_id": "br_886de803bb354350420ef1eff04c38c9ae074bd2268af8e9bea30eff99e00392",
+      "step": "capability-only",
+      "verdict": "UNKNOWN",
+      "world_truth": "OUT_OF_SCOPE"
+    },
+    {
+      "action_executed": false,
+      "challenge_id": "ch_b76aff8d4302a828fe07b54f",
+      "effective_scope": {
+        "actions": [
+          "deploy"
+        ],
+        "constraints": {
+          "max_runs": 1
+        },
+        "resources": [
+          "sandbox:demo"
+        ]
+      },
+      "reason_codes": [
+        "ALL_MANDATORY_CHECKS_PASS"
+      ],
+      "receipt_id": "br_8ce58bd9ca390aab2afab145d86a1d03d79d0213483a0af43df5f95c2b9730cc",
+      "step": "exact-trusted-grant",
+      "verdict": "ADMIT",
+      "world_truth": "OUT_OF_SCOPE"
+    },
+    {
+      "action_executed": false,
+      "challenge_id": "ch_13e8c522ffafc956ace96d32",
+      "effective_scope": {
+        "actions": [],
+        "constraints": {
+          "max_runs": null
+        },
+        "resources": []
+      },
+      "reason_codes": [
+        "SCOPE_EXCEEDED"
+      ],
+      "receipt_id": "br_c8dcb446b475a9a19b1f6b90f200316f292b57fea1811e2af630e96d906b59cc",
+      "step": "production-scope-mutation",
+      "verdict": "DENY",
+      "world_truth": "OUT_OF_SCOPE"
+    },
+    {
+      "action_executed": false,
+      "challenge_id": "ch_b76aff8d4302a828fe07b54f",
+      "effective_scope": {
+        "actions": [],
+        "constraints": {
+          "max_runs": null
+        },
+        "resources": []
+      },
+      "reason_codes": [
+        "REPLAY_DETECTED"
+      ],
+      "receipt_id": "br_b8051445ad5162eab32e792cf1e4241c346206a3fcb2cd67382800f614704abb",
+      "step": "consumed-grant-replay",
+      "verdict": "DENY",
+      "world_truth": "OUT_OF_SCOPE"
+    }
+  ]
+}
