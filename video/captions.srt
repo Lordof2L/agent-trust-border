@@ -1,0 +1,29 @@
+1
+00:00:00,000 --> 00:00:06,000
+A valid signature is not permission.
+
+2
+00:00:06,000 --> 00:00:18,000
+Agent cards can name identity, capability and evidence.
+They do not automatically preserve receiver authority.
+
+3
+00:00:18,000 --> 00:00:30,000
+Integrity, identity, authority, evidence and world truth stay separate.
+Missing mandatory meaning becomes UNKNOWN, never permission.
+
+4
+00:00:30,000 --> 00:00:50,000
+Capability only: UNKNOWN plus an exact challenge.
+Trusted one-use grant: ADMIT sandbox:demo.
+Production mutation or replay: DENY.
+
+5
+00:00:50,000 --> 00:01:04,000
+25 tests. 20 named cases. 2,000 deterministic executions.
+Every outcome preserves action_executed:false.
+
+6
+00:01:04,000 --> 00:01:14,000
+Synthetic Stage-1 prototype, not production security.
+github.com/Lordof2L/agent-trust-border

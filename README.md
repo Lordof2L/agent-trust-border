@@ -30,6 +30,9 @@ consumed grant replay                    -> DENY:REPLAY_DETECTED
 or inspect the committed [proof report](PROOF-REPORT.md),
 [trace](artifacts/trace.json), and [signed receipts](artifacts/).
 
+[Watch the 74-second caption-first demo](https://lordof2l.github.io/agent-trust-border/#video)
+or download the reproducible [MP4](video/Agent-Trust-Border-Stage1.mp4).
+
 ## How it works
 
 ```text
