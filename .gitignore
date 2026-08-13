@@ -15,3 +15,7 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+video/Agent-Trust-Border-Stage1-v2.mp4
+video/elevenlabs-status-*-v2.json
+video/narration-v2.mp3
+video/qa-v2/

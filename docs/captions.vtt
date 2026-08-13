@@ -1,25 +1,113 @@
-WEBVTT
+WEBVTT\n\n1
+00:00:00.000 --> 00:00:04.660
+AI agents can carry valid signatures and
+still have no authority to act.
 
-00:00.000 --> 00:06.000
-A valid signature is not permission.
+2
+00:00:04.660 --> 00:00:09.760
+Agent Trust Border is a receiver-owned
+admission layer that prevents signed metadata
 
-00:06.000 --> 00:18.000
-Agent cards can name identity, capability and evidence.
-They do not automatically preserve receiver authority.
+3
+00:00:09.760 --> 00:00:15.380
+from being mistaken for permission. Here is
+the exact problem. A deploy agent presents
 
-00:18.000 --> 00:30.000
-Integrity, identity, authority, evidence and world truth stay separate.
-Missing mandatory meaning becomes UNKNOWN, never permission.
+4
+00:00:15.380 --> 00:00:21.540
+an identity. a valid signature. and a declared
+capability. But no trusted operation grant
 
-00:30.000 --> 00:50.000
-Capability only: UNKNOWN plus an exact challenge.
-Trusted one-use grant: ADMIT sandbox:demo.
-Production mutation or replay: DENY.
+5
+00:00:21.540 --> 00:00:26.580
+is present. The border keeps integrity.
+identity. authority. evidence.
 
-00:50.000 --> 01:04.000
-25 tests. 20 named cases. 2,000 deterministic executions.
-Every outcome preserves action_executed:false.
+6
+00:00:26.740 --> 00:00:30.980
+and world truth separate. The result is
+UNKNOWN. not approval. Nothing executes.
 
-01:04.000 --> 01:14.000
-Synthetic Stage-1 prototype, not production security.
-github.com/Lordof2L/agent-trust-border
+7
+00:00:30.980 --> 00:00:35.780
+The receiver creates a challenge bound to the
+request. nonce. policy. mapping.
+
+8
+00:00:35.780 --> 00:00:41.640
+and trust profile. Now supply a trusted
+one-use grant for deploy on sandbox demo.
+
+9
+00:00:42.260 --> 00:00:47.340
+The same request becomes ADMIT. Effective
+scope is only the intersection of request.
+
+10
+00:00:47.620 --> 00:00:52.860
+grant. and receiver policy: sandbox demo.
+one run. Change the target to production.
+
+11
+00:00:53.260 --> 00:01:00.460
+and the decision becomes DENY: scope exceeded.
+Replay the consumed grant.
+
+12
+00:01:00.460 --> 00:01:09.320
+and it is denied again: replay detected. Each
+outcome creates a D-S-S-E and Ed25519-signed
+
+13
+00:01:09.320 --> 00:01:15.680
+BorderReceipt. It binds the request. policy.
+mapping. reason codes. and effective scope.
+
+14
+00:01:15.680 --> 00:01:20.980
+and action_executed:false. A separate verifier
+recomputes those bindings offline.
+
+15
+00:01:20.980 --> 00:01:25.280
+This is the current evidence explorer. It
+replays committed artifacts from the Python
+
+16
+00:01:25.280 --> 00:01:30.340
+kernel; it does not fake a live action.
+Twenty-five tests pass.
+
+17
+00:01:30.500 --> 00:01:35.540
+including twenty named security cases repeated
+one hundred times from fresh state:
+
+18
+00:01:35.540 --> 00:01:40.940
+two thousand deterministic executions. This is
+a falsifiable Stage One prototype.
+
+19
+00:01:40.940 --> 00:01:46.140
+not a production gateway. Its source adapter
+and identities are synthetic.
+
+20
+00:01:46.140 --> 00:01:50.880
+It claims neither live protocol conformance.
+world truth. benign intent.
+
+21
+00:01:50.880 --> 00:01:55.640
+nor production security. No model. network.
+tool. or requested action runs
+
+22
+00:01:55.640 --> 00:02:01.280
+inside the trusted path. Agent Trust Border
+makes missing authority visible
+
+23
+00:02:01.280 --> 00:02:02.760
+before an autonomous agent crosses the line.

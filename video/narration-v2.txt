@@ -1,0 +1,17 @@
+AI agents can carry valid signatures and still have no authority to act. Agent Trust Border is a receiver-owned admission layer that prevents signed metadata from being mistaken for permission.
+
+Here is the exact problem. A deploy agent presents an identity, a valid signature, and a declared capability. But no trusted operation grant is present. The border keeps integrity, identity, authority, evidence, and world truth separate.
+
+The result is UNKNOWN, not approval. Nothing executes. The receiver creates a challenge bound to the request, nonce, policy, mapping, and trust profile.
+
+Now supply a trusted one-use grant for deploy on sandbox demo. The same request becomes ADMIT. Effective scope is only the intersection of request, grant, and receiver policy: sandbox demo, one run.
+
+Change the target to production, and the decision becomes DENY: scope exceeded. Replay the consumed grant, and it is denied again: replay detected.
+
+Each outcome creates a D-S-S-E and Ed twenty-five five nineteen signed Border Receipt. It binds the request, policy, mapping, reason codes, effective scope, and action executed false. A separate verifier recomputes those bindings offline.
+
+This is the current evidence explorer. It replays committed artifacts from the Python kernel; it does not fake a live action. Twenty-five tests pass, including twenty named security cases repeated one hundred times from fresh state: two thousand deterministic executions.
+
+This is a falsifiable Stage One prototype, not a production gateway. Its source adapter and identities are synthetic. It claims neither live protocol conformance, world truth, benign intent, nor production security. No model, network, tool, or requested action runs inside the trusted path.
+
+Agent Trust Border makes missing authority visible before an autonomous agent crosses the line.
