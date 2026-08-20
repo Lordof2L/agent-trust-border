@@ -25,12 +25,35 @@ Core security semantics passed. No tested path executed the requested action, wi
 
 P0 findings: **0**.
 
-P1 findings: **2**:
+P1 findings recorded in the frozen pass: **2**:
 
-1. The pre-fix public decision tablist did not implement the WAI-ARIA tabs pattern or Arrow/Home/End operation.
+1. The pre-fix public decision tablist did not implement the WAI-ARIA tabs pattern or Arrow/Home/End operation. A source fix is now deployed, but a post-deploy interactive recheck is blocked as recorded below.
 2. The Devpost YouTube iframe was unavailable inside the Codex in-app browser; the failure may be environment-specific.
 
-The root agent reported that finding 1 has been fixed locally. This report preserves the observed pre-fix public FAIL until a deployed live recheck is recorded.
+This report preserves the three observed pre-fix public FAIL results. A deployed
+source match is evidence that the fix reached production; it is not silently
+substituted for the missing interactive operator recheck.
+
+## Post-deploy source verification
+
+GitHub Pages successfully deployed main commit
+`7e36084a4cd59cb6819b1f9d3913d4add6d9f0da`. Fresh HTTP GETs after that build
+proved that the public files are byte-identical to the locally tested fix:
+
+- `docs/index.html`: `42f71fca0b6cc20c6de412d0762009cb02f5fe6069d5d4c491d9a6ef697659fe`;
+- `docs/app.js`: `49f7e171ab42d04c41c6475bbd02d2140929d93f1ef7b44f14f6b530a6995e23`.
+
+The deployed HTML contains four `aria-controls="decisionPanel"` relationships,
+one labelled `role="tabpanel"`, one initial `tabindex="0"` and three initial
+`tabindex="-1"` values. The deployed JavaScript contains the
+ArrowLeft/ArrowRight/Home/End handlers and roving-tabstop update.
+
+The retained Codex Browser binding disconnected before the bounded interactive
+recheck. Explicit reconnect was unavailable and `browsers.list()` returned an
+empty list. No replacement tab was created. Therefore the source/deployment fix
+is proved, while KEYBOARD-003, KEYBOARD-004 and SEMANTIC-ARIA-001 remain the
+historical pre-fix observations rather than being relabelled PASS without a
+working browser operator.
 
 ## Highest-impact evidence
 
