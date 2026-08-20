@@ -465,7 +465,7 @@
         "SEMANTIC-ARIA-001"
       ],
       "evidence": "Live public tablist lacked roving tabindex, tab/panel relationships and Arrow/Home/End behavior.",
-      "remediation_state": "Root agent reported a local fix; live deployment recheck not yet performed."
+      "remediation_state": "Fix deployed at main commit 7e36084a4cd59cb6819b1f9d3913d4add6d9f0da and public HTML/JS are byte-identical to the locally tested files; interactive Browser recheck is blocked by a disconnected backend."
     },
     {
       "id": "FINDING-P1-DEVPOST-VIDEO",
@@ -480,8 +480,31 @@
   "limitations": [
     "Browser client blocked direct JSON navigation with ERR_BLOCKED_BY_CLIENT; independent HTTP 200, DSSE parse, signature count and decoded receipt IDs supplied the result.",
     "Synthetic key injection did not activate native buttons/summary on either public or local pages; Enter/Space cases are BLOCKED, not product failures.",
-    "Devpost dynamic content was visible in the semantic snapshot but unavailable to page-evaluate; snapshot plus HTTP evidence was used."
+    "Devpost dynamic content was visible in the semantic snapshot but unavailable to page-evaluate; snapshot plus HTTP evidence was used.",
+    "After the accessibility fix deployed, the retained Browser binding disconnected and browsers.list() returned an empty list; deployed source equality is proved but no interactive post-fix PASS is inferred."
   ],
+  "post_deploy_verification": {
+    "commit": "7e36084a4cd59cb6819b1f9d3913d4add6d9f0da",
+    "pages_status": "built",
+    "public_index_sha256": "42f71fca0b6cc20c6de412d0762009cb02f5fe6069d5d4c491d9a6ef697659fe",
+    "local_index_sha256": "42f71fca0b6cc20c6de412d0762009cb02f5fe6069d5d4c491d9a6ef697659fe",
+    "public_app_sha256": "49f7e171ab42d04c41c6475bbd02d2140929d93f1ef7b44f14f6b530a6995e23",
+    "local_app_sha256": "49f7e171ab42d04c41c6475bbd02d2140929d93f1ef7b44f14f6b530a6995e23",
+    "deployed_semantics": {
+      "aria_controls": 4,
+      "tabpanel": 1,
+      "initial_tabindex_0": 1,
+      "initial_tabindex_minus_1": 3,
+      "keyboard_handlers": [
+        "ArrowLeft",
+        "ArrowRight",
+        "Home",
+        "End"
+      ]
+    },
+    "interactive_recheck": "BLOCKED_BROWSER_BACKEND_DISCONNECTED",
+    "historical_case_statuses_changed": false
+  },
   "key_evidence": {
     "public_mp4_sha256": "0cafc1e540d313c66394a5e0dab2fe16a5d328fd4e2934745b7b22af99dcf8bd",
     "public_mp4_duration_seconds": 122.76,
