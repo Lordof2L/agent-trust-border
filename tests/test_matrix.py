@@ -108,3 +108,17 @@ def test_public_fixture_identifiers_and_keys_are_unambiguously_demo_only() -> No
     assert world.policy.audience.startswith("demo:border:")
     assert world.trust.subject.startswith("demo:agent:")
     assert all(key_id.startswith("demo:key:") for key_id in world.keys.public_keys)
+
+
+def test_public_trace_uses_one_roving_tabstop_and_a_labelled_tabpanel() -> None:
+    repository_root = Path(__file__).parents[1]
+    html = (repository_root / "docs" / "index.html").read_text(encoding="utf-8")
+    script = (repository_root / "docs" / "app.js").read_text(encoding="utf-8")
+
+    assert html.count('role="tab"') == 4
+    assert html.count('tabindex="0"') == 1
+    assert html.count('tabindex="-1"') == 3
+    assert html.count('aria-controls="decisionPanel"') == 4
+    assert 'role="tabpanel" aria-labelledby="traceTab0"' in html
+    for key in ("ArrowRight", "ArrowLeft", "Home", "End"):
+        assert key in script

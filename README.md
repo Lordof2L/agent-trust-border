@@ -83,6 +83,22 @@ open artifacts/trace.html
 All identities and deterministically derived keys use a `demo:` namespace and
 carry no external authority. Never reuse them outside this synthetic fixture.
 
+## Phase 2 executable request lab
+
+Phase 2 adds one local browser-operated vertical slice outside the trusted
+kernel. It accepts only bounded synthetic controls, invokes the real Python
+admission reducer, creates a new DSSE/Ed25519 receipt and independently verifies
+that receipt before rendering the result. It still has no requested-action
+execution path, production trust root or remote resolver.
+
+```bash
+./run-phase2
+# open http://127.0.0.1:8877
+```
+
+The exact acceptance contract and deferred production surface are recorded in
+[`docs/phase2/PHASE-2-SLICE.md`](docs/phase2/PHASE-2-SLICE.md).
+
 ## Truth boundary
 
 This prototype demonstrates receiver-owned, loss-aware admission for one

@@ -73,13 +73,13 @@
         </div>
 
         <div class="step-tabs" role="tablist" aria-label="Decision trace steps">
-          <button class="step-tab active" role="tab" aria-selected="true" data-step="0"><b>01</b><span>Capability only</span></button>
-          <button class="step-tab" role="tab" aria-selected="false" data-step="1"><b>02</b><span>Exact trusted grant</span></button>
-          <button class="step-tab" role="tab" aria-selected="false" data-step="2"><b>03</b><span>Production mutation</span></button>
-          <button class="step-tab" role="tab" aria-selected="false" data-step="3"><b>04</b><span>Consumed grant replay</span></button>
+          <button id="traceTab0" class="step-tab active" role="tab" aria-selected="true" aria-controls="decisionPanel" tabindex="0" data-step="0"><b>01</b><span>Capability only</span></button>
+          <button id="traceTab1" class="step-tab" role="tab" aria-selected="false" aria-controls="decisionPanel" tabindex="-1" data-step="1"><b>02</b><span>Exact trusted grant</span></button>
+          <button id="traceTab2" class="step-tab" role="tab" aria-selected="false" aria-controls="decisionPanel" tabindex="-1" data-step="2"><b>03</b><span>Production mutation</span></button>
+          <button id="traceTab3" class="step-tab" role="tab" aria-selected="false" aria-controls="decisionPanel" tabindex="-1" data-step="3"><b>04</b><span>Consumed grant replay</span></button>
         </div>
 
-        <div class="decision-grid">
+        <div id="decisionPanel" class="decision-grid" role="tabpanel" aria-labelledby="traceTab0">
           <article class="decision-card">
             <div class="decision-topline">
               <span id="verdict" class="verdict unknown">UNKNOWN</span>

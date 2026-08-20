@@ -1,0 +1,504 @@
+{
+  "schema_version": 1,
+  "audit_id": "phase2-web-operator-2026-08-20",
+  "scope": {
+    "app": "https://lordof2l.github.io/agent-trust-border/",
+    "devpost": "https://devpost.com/software/agent-trust-border",
+    "mode": "one bounded read-only live pass",
+    "source_mutation_allowed": false
+  },
+  "matrix_frozen_before_test": true,
+  "cases": [
+    {
+      "id": "APP-LIVE-001",
+      "area": "load",
+      "expected": "HTTP-successful rendered page with correct title and H1",
+      "status": "PASS",
+      "evidence": "Live title Agent Trust Border — Evidence Explorer, correct H1, readyState complete, HTTP 200."
+    },
+    {
+      "id": "APP-ASSET-001",
+      "area": "assets",
+      "expected": "styles.css loads",
+      "status": "PASS",
+      "evidence": "styles.css HTTP 200 text/css and rendered styling."
+    },
+    {
+      "id": "APP-ASSET-002",
+      "area": "assets",
+      "expected": "app.js loads",
+      "status": "PASS",
+      "evidence": "app.js HTTP 200 application/javascript; all click-state transitions executed."
+    },
+    {
+      "id": "APP-ASSET-003",
+      "area": "assets",
+      "expected": "video-poster.png loads",
+      "status": "PASS",
+      "evidence": "video-poster.png HTTP 200 image/png."
+    },
+    {
+      "id": "APP-ASSET-004",
+      "area": "assets",
+      "expected": "MP4 metadata and byte range load",
+      "status": "PASS",
+      "evidence": "MP4 Range request HTTP 206; live metadata 122.76s 1920x1080."
+    },
+    {
+      "id": "APP-ASSET-005",
+      "area": "assets",
+      "expected": "captions.vtt loads",
+      "status": "PASS",
+      "evidence": "captions.vtt HTTP 200 text/vtt; browser text track English/en mode=showing."
+    },
+    {
+      "id": "APP-ASSET-006",
+      "area": "assets",
+      "expected": "five-slide PDF loads",
+      "status": "PASS",
+      "evidence": "PDF HTTP 200 application/pdf and browser download event observed."
+    },
+    {
+      "id": "APP-NAV-001",
+      "area": "navigation",
+      "expected": "brand navigates to #top",
+      "status": "PASS",
+      "evidence": "Brand click changed URL to #top."
+    },
+    {
+      "id": "APP-NAV-002",
+      "area": "navigation",
+      "expected": "Video navigates to #video",
+      "status": "PASS",
+      "evidence": "Video click changed URL to #video."
+    },
+    {
+      "id": "APP-NAV-003",
+      "area": "navigation",
+      "expected": "Proof navigates to #proof",
+      "status": "PASS",
+      "evidence": "Proof click changed URL to #proof."
+    },
+    {
+      "id": "APP-NAV-004",
+      "area": "navigation",
+      "expected": "Boundary navigates to #boundary",
+      "status": "PASS",
+      "evidence": "Boundary click changed URL to #boundary."
+    },
+    {
+      "id": "APP-NAV-005",
+      "area": "navigation",
+      "expected": "Source resolves to public GitHub repository",
+      "status": "PASS",
+      "evidence": "Source click opened the exact public GitHub repository with correct title."
+    },
+    {
+      "id": "APP-NAV-006",
+      "area": "navigation",
+      "expected": "Explore CTA navigates to #proof",
+      "status": "PASS",
+      "evidence": "Explore CTA click changed URL to #proof."
+    },
+    {
+      "id": "APP-NAV-007",
+      "area": "navigation",
+      "expected": "brief CTA opens readable PDF",
+      "status": "PASS",
+      "evidence": "Brief CTA produced a browser download; target HTTP 200 application/pdf."
+    },
+    {
+      "id": "APP-NAV-008",
+      "area": "navigation",
+      "expected": "ElevenLabs attribution resolves without broken destination",
+      "status": "PASS",
+      "evidence": "ElevenLabs click reached https://elevenlabs.io/ with correct title; HTTP 200."
+    },
+    {
+      "id": "APP-VIDEO-001",
+      "area": "media",
+      "expected": "video reports finite duration, video dimensions and an audio track",
+      "status": "PASS",
+      "evidence": "Live duration 122.76s, 1920x1080; public and local SHA-256 identical; ffprobe proves H.264 video plus AAC 48kHz mono audio."
+    },
+    {
+      "id": "APP-VIDEO-002",
+      "area": "media",
+      "expected": "native play and pause controls change playback state",
+      "status": "PASS",
+      "evidence": "Keyboard Space changed paused true→false with currentTime advance, then false→true."
+    },
+    {
+      "id": "APP-VIDEO-003",
+      "area": "media",
+      "expected": "English captions track exists and is default",
+      "status": "PASS",
+      "evidence": "English captions track exists, language en, mode showing and default markup present."
+    },
+    {
+      "id": "FLOW-UNKNOWN-001",
+      "area": "semantics",
+      "expected": "initial UNKNOWN shows MISSING_AUTHORIZATION, no authority, action false, unknown receipt",
+      "status": "PASS",
+      "evidence": "Click state: UNKNOWN/MISSING_AUTHORIZATION, empty scope, action_executed false, unknown receipt."
+    },
+    {
+      "id": "FLOW-ADMIT-001",
+      "area": "semantics",
+      "expected": "step 02 shows ADMIT, exact sandbox:demo deploy grant, maxRuns 1, action false, admit receipt",
+      "status": "PASS",
+      "evidence": "Click state: ADMIT/ALL_MANDATORY_CHECKS_PASS, sandbox:demo deploy maxRuns=1, action_executed false."
+    },
+    {
+      "id": "FLOW-SCOPE-DENY-001",
+      "area": "semantics",
+      "expected": "step 03 shows DENY/SCOPE_EXCEEDED, no effective authority, action false, deny receipt",
+      "status": "PASS",
+      "evidence": "Click state: DENY/SCOPE_EXCEEDED, empty scope, action_executed false."
+    },
+    {
+      "id": "FLOW-REPLAY-DENY-001",
+      "area": "semantics",
+      "expected": "step 04 shows DENY/REPLAY_DETECTED, no effective authority, action false, replay receipt",
+      "status": "PASS",
+      "evidence": "Click state: DENY/REPLAY_DETECTED, empty scope, action_executed false."
+    },
+    {
+      "id": "RECEIPT-UNKNOWN-001",
+      "area": "evidence",
+      "expected": "UNKNOWN raw DSSE link returns valid JSON matching displayed receipt",
+      "status": "PASS",
+      "evidence": "HTTP 200 valid DSSE JSON, one signature; decoded receipt_id exactly br_886de803...00392."
+    },
+    {
+      "id": "RECEIPT-ADMIT-001",
+      "area": "evidence",
+      "expected": "ADMIT raw DSSE link returns valid JSON matching displayed receipt",
+      "status": "PASS",
+      "evidence": "HTTP 200 valid DSSE JSON, one signature; decoded receipt_id exactly br_8ce58bd9...730cc."
+    },
+    {
+      "id": "RECEIPT-DENY-001",
+      "area": "evidence",
+      "expected": "scope DENY raw DSSE link returns valid JSON matching displayed receipt",
+      "status": "PASS",
+      "evidence": "HTTP 200 valid DSSE JSON, one signature; decoded receipt_id exactly br_c8dcb446...b59cc."
+    },
+    {
+      "id": "RECEIPT-REPLAY-001",
+      "area": "evidence",
+      "expected": "replay DENY raw DSSE link returns valid JSON matching displayed receipt",
+      "status": "PASS",
+      "evidence": "HTTP 200 valid DSSE JSON, one signature; decoded receipt_id exactly br_b8051445...04abb."
+    },
+    {
+      "id": "KEYBOARD-001",
+      "area": "accessibility",
+      "expected": "Tab and Enter activate each decision tab",
+      "status": "BLOCKED",
+      "evidence": "Browser Playwright and DOM-CUA key injection did not dispatch a native activation; live button semantics exist, so no product failure inferred."
+    },
+    {
+      "id": "KEYBOARD-002",
+      "area": "accessibility",
+      "expected": "Space activates a focused decision tab",
+      "status": "BLOCKED",
+      "evidence": "Browser Playwright and DOM-CUA key injection did not dispatch a native activation; live button semantics exist, so no product failure inferred."
+    },
+    {
+      "id": "KEYBOARD-003",
+      "area": "accessibility",
+      "expected": "Right/Left arrows move and select within tablist",
+      "status": "FAIL",
+      "evidence": "Pre-fix public live tablist did not move focus or selection on ArrowRight/ArrowLeft; no key handler or roving tabindex existed."
+    },
+    {
+      "id": "KEYBOARD-004",
+      "area": "accessibility",
+      "expected": "Home/End move to first/last tab",
+      "status": "FAIL",
+      "evidence": "Pre-fix public live tablist did not respond to Home/End."
+    },
+    {
+      "id": "KEYBOARD-005",
+      "area": "accessibility",
+      "expected": "interactive controls expose visible focus",
+      "status": "PASS",
+      "evidence": "Focused live tab exposed UA focus outline rgb(153,200,255) auto 1px."
+    },
+    {
+      "id": "SEMANTIC-ARIA-001",
+      "area": "accessibility",
+      "expected": "tablist follows WAI-ARIA tabs pattern with managed tab stops and tabpanel relationships",
+      "status": "FAIL",
+      "evidence": "Pre-fix public live DOM had four tabs all tabindex=0, no tab ids, no aria-controls, and no role=tabpanel relationship."
+    },
+    {
+      "id": "SEMANTIC-CONTENT-001",
+      "area": "content",
+      "expected": "metrics, boundary claims and no-action language are internally consistent",
+      "status": "PASS",
+      "evidence": "Metrics, action_executed false, replay-only disclaimer and Proved/Not claimed boundary are mutually consistent."
+    },
+    {
+      "id": "RESPONSIVE-1440-001",
+      "area": "responsive",
+      "expected": "1440x900 has no horizontal overflow or clipped controls",
+      "status": "PASS",
+      "evidence": "1440x900: scrollWidth=clientWidth, zero offscreen interactive offenders."
+    },
+    {
+      "id": "RESPONSIVE-768-001",
+      "area": "responsive",
+      "expected": "768x1024 has no horizontal overflow or clipped controls",
+      "status": "PASS",
+      "evidence": "768x1024: scrollWidth=clientWidth, zero offscreen interactive offenders."
+    },
+    {
+      "id": "RESPONSIVE-390-001",
+      "area": "responsive",
+      "expected": "390x844 has no horizontal overflow or clipped controls",
+      "status": "PASS",
+      "evidence": "390x844: scrollWidth=clientWidth, zero offscreen interactive offenders."
+    },
+    {
+      "id": "CONSOLE-APP-001",
+      "area": "runtime",
+      "expected": "no uncaught page errors or error-level console output through full app pass",
+      "status": "PASS",
+      "evidence": "Zero captured error-level console entries through the public app pass."
+    },
+    {
+      "id": "LINKS-APP-001",
+      "area": "links",
+      "expected": "all declared href/src destinations resolve or are valid same-page fragments",
+      "status": "PASS",
+      "evidence": "All fragments clicked; every declared public asset/external destination returned HTTP 200, MP4 range 206."
+    },
+    {
+      "id": "DEVPOST-LIVE-001",
+      "area": "devpost",
+      "expected": "public project page renders title and availability without authentication",
+      "status": "PASS",
+      "evidence": "Unauthenticated page HTTP 200, title Agent Trust Border | Devpost and H1/tagline visible."
+    },
+    {
+      "id": "DEVPOST-CONTENT-001",
+      "area": "devpost",
+      "expected": "project summary, claims and built-with content match public prototype",
+      "status": "PASS",
+      "evidence": "Semantic snapshot contains complete story, exact five-axis model, four demonstrated verdict flows, proof metrics, limitations and Try it out links."
+    },
+    {
+      "id": "DEVPOST-WEBSITE-001",
+      "area": "devpost",
+      "expected": "Try it out website link resolves to live app",
+      "status": "PASS",
+      "evidence": "Devpost semantic href is exact Pages URL; target HTTP 200."
+    },
+    {
+      "id": "DEVPOST-SOURCE-001",
+      "area": "devpost",
+      "expected": "source link resolves to public GitHub repository",
+      "status": "PASS",
+      "evidence": "Devpost semantic href is exact public repo; target HTTP 200."
+    },
+    {
+      "id": "DEVPOST-VIDEO-001",
+      "area": "devpost",
+      "expected": "video embed or direct link exposes the submitted walkthrough",
+      "status": "WARN",
+      "evidence": "Devpost iframe visibly reported youtube.com connection refused in Codex IAB; direct YouTube host was unreachable from this environment, while the identical public MP4 fallback remained healthy."
+    },
+    {
+      "id": "DEVPOST-RESPONSIVE-001",
+      "area": "devpost",
+      "expected": "390x844 retains readable project content without horizontal overflow",
+      "status": "PASS",
+      "evidence": "390x844: no horizontal overflow and no offscreen interactive offenders."
+    },
+    {
+      "id": "CONSOLE-DEVPOST-001",
+      "area": "runtime",
+      "expected": "no project-blocking uncaught error through public Devpost pass",
+      "status": "PASS",
+      "evidence": "Zero captured error-level console entries through public Devpost pass."
+    },
+    {
+      "id": "LOCAL-LIVE-001",
+      "area": "local-load",
+      "expected": "local lab renders connected health state and disabled action execution",
+      "status": "PASS",
+      "evidence": "Live title Executable Request Lab; connected status says action execution disabled; /api/v1/health status ok and action_execution false."
+    },
+    {
+      "id": "LOCAL-PRESET-MISSING-001",
+      "area": "local-preset",
+      "expected": "Missing authority evaluates UNKNOWN/MISSING_AUTHORIZATION, action_executed false, receipt_verified true",
+      "status": "PASS",
+      "evidence": "Click/raw JSON: UNKNOWN/MISSING_AUTHORIZATION, receipt_verified true, action_executed false."
+    },
+    {
+      "id": "LOCAL-PRESET-EXACT-001",
+      "area": "local-preset",
+      "expected": "Exact grant evaluates ADMIT/ALL_MANDATORY_CHECKS_PASS, action_executed false, receipt_verified true",
+      "status": "PASS",
+      "evidence": "Click/raw JSON: ADMIT/ALL_MANDATORY_CHECKS_PASS, sandbox deploy max_runs=1, receipt_verified true, action_executed false."
+    },
+    {
+      "id": "LOCAL-PRESET-PRODUCTION-001",
+      "area": "local-preset",
+      "expected": "Production mutation evaluates DENY/SCOPE_EXCEEDED, action_executed false, receipt_verified true",
+      "status": "PASS",
+      "evidence": "Click/raw JSON: DENY/SCOPE_EXCEEDED, empty scope, receipt_verified true, action_executed false."
+    },
+    {
+      "id": "LOCAL-PRESET-REPLAY-001",
+      "area": "local-preset",
+      "expected": "Consumed replay evaluates DENY/REPLAY_DETECTED, action_executed false, receipt_verified true",
+      "status": "PASS",
+      "evidence": "Click/raw JSON: DENY/REPLAY_DETECTED, empty scope, receipt_verified true, action_executed false."
+    },
+    {
+      "id": "LOCAL-PRESET-EVIDENCE-001",
+      "area": "local-preset",
+      "expected": "Evidence unavailable evaluates UNKNOWN with MISSING_AUTHORIZATION and EVIDENCE_UNAVAILABLE, action_executed false, receipt_verified true",
+      "status": "PASS",
+      "evidence": "Click/raw JSON: UNKNOWN with MISSING_AUTHORIZATION and EVIDENCE_UNAVAILABLE, receipt_verified true, action_executed false."
+    },
+    {
+      "id": "LOCAL-MANUAL-EXACT-001",
+      "area": "local-manual",
+      "expected": "manual sandbox + exact grant + verified fixture produces the same ADMIT contract",
+      "status": "PASS",
+      "evidence": "Manual three-select sandbox/exact/verified plus Evaluate produced the identical ADMIT contract."
+    },
+    {
+      "id": "LOCAL-INVALID-COMBO-001",
+      "area": "local-constraint",
+      "expected": "an invalid or conflicting selector combination is constrained or fails closed without action execution",
+      "status": "PASS",
+      "evidence": "UI coerced exact+unavailable to missing+unavailable; direct API conflict returned HTTP 422 invalid_command with action_executed false."
+    },
+    {
+      "id": "LOCAL-KEYBOARD-001",
+      "area": "local-accessibility",
+      "expected": "preset, select, evaluate and details controls are keyboard reachable and native activation works",
+      "status": "BLOCKED",
+      "evidence": "All controls are native and tabindex=0, but Browser Playwright and DOM-CUA key injection did not dispatch Enter/Space; keyboard behavior could not be distinguished from tool limitation."
+    },
+    {
+      "id": "LOCAL-RESPONSIVE-390-001",
+      "area": "local-responsive",
+      "expected": "390x844 has no horizontal overflow or clipped interactive controls",
+      "status": "PASS",
+      "evidence": "390x844: scrollWidth=clientWidth and zero clipped/offscreen interactive offenders."
+    },
+    {
+      "id": "LOCAL-DETAILS-001",
+      "area": "local-evidence",
+      "expected": "raw-details disclosure opens and exposes parseable result JSON matching the visible outcome",
+      "status": "PASS",
+      "evidence": "Summary click opened disclosure; 4,577-byte JSON parsed and matched visible verdict, reasons, scope, receipt and verification flags."
+    },
+    {
+      "id": "LOCAL-NAV-001",
+      "area": "local-navigation",
+      "expected": "home, Lab and Boundary anchors work and Source targets the public repo",
+      "status": "PASS",
+      "evidence": "Lab, Boundary and home clicks produced exact anchors; Source reached the public GitHub repo."
+    },
+    {
+      "id": "LOCAL-HEALTH-001",
+      "area": "local-runtime",
+      "expected": "visible health state and health endpoint report ready/connected",
+      "status": "PASS",
+      "evidence": "/api/v1/health HTTP 200: status ok, action_execution false; UI shows connected and action execution disabled."
+    },
+    {
+      "id": "LOCAL-NETWORK-001",
+      "area": "local-runtime",
+      "expected": "all five evaluations return successful bounded responses with no failed network request",
+      "status": "PASS",
+      "evidence": "Five preset POSTs returned HTTP 200 with exact contracts; conflict returned bounded HTTP 422; no network or action execution error."
+    },
+    {
+      "id": "CONSOLE-LOCAL-001",
+      "area": "local-runtime",
+      "expected": "no uncaught or error-level console output through full local pass",
+      "status": "PASS",
+      "evidence": "Zero captured error-level console entries across all local presets/manual/invalid/mobile flows."
+    }
+  ],
+  "summary": {
+    "total": 60,
+    "pass": 53,
+    "fail": 3,
+    "warn": 1,
+    "blocked": 3,
+    "pending": 0,
+    "p0": 0,
+    "p1": 2
+  },
+  "completed_at": "2026-08-20T12:42:00+02:00",
+  "method": {
+    "browser_session": "agent-trust-border-phase2-audit",
+    "pass": "one bounded live pass with targeted corrective recapture only after unsupported selector/client operations invalidated an observation",
+    "external_mutation": false,
+    "excluded": [
+      "Like",
+      "Comment",
+      "Follow",
+      "Login",
+      "Signup",
+      "forms that transmit data"
+    ]
+  },
+  "findings": [
+    {
+      "id": "FINDING-P1-PUBLIC-TABS",
+      "severity": "P1",
+      "status": "OPEN_ON_PRE_FIX_PUBLIC",
+      "cases": [
+        "KEYBOARD-003",
+        "KEYBOARD-004",
+        "SEMANTIC-ARIA-001"
+      ],
+      "evidence": "Live public tablist lacked roving tabindex, tab/panel relationships and Arrow/Home/End behavior.",
+      "remediation_state": "Root agent reported a local fix; live deployment recheck not yet performed."
+    },
+    {
+      "id": "FINDING-P1-DEVPOST-VIDEO",
+      "severity": "P1",
+      "status": "ENVIRONMENT_SPECIFIC_UNRESOLVED",
+      "cases": [
+        "DEVPOST-VIDEO-001"
+      ],
+      "evidence": "Devpost iframe visibly refused youtube.com in Codex IAB and this environment could not connect to youtube.com; public fallback MP4 is HTTP 206, AV-valid, and hash-identical to local source."
+    }
+  ],
+  "limitations": [
+    "Browser client blocked direct JSON navigation with ERR_BLOCKED_BY_CLIENT; independent HTTP 200, DSSE parse, signature count and decoded receipt IDs supplied the result.",
+    "Synthetic key injection did not activate native buttons/summary on either public or local pages; Enter/Space cases are BLOCKED, not product failures.",
+    "Devpost dynamic content was visible in the semantic snapshot but unavailable to page-evaluate; snapshot plus HTTP evidence was used."
+  ],
+  "key_evidence": {
+    "public_mp4_sha256": "0cafc1e540d313c66394a5e0dab2fe16a5d328fd4e2934745b7b22af99dcf8bd",
+    "public_mp4_duration_seconds": 122.76,
+    "public_mp4_streams": [
+      "H.264 1920x1080",
+      "AAC 48000Hz mono",
+      "mov_text subtitles"
+    ],
+    "local_health": {
+      "status": "ok",
+      "action_execution": false,
+      "kernel": "agent-trust-border/0.1"
+    },
+    "local_conflict": {
+      "http": 422,
+      "error": "invalid_command",
+      "action_executed": false
+    }
+  }
+}

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Run bounded synthetic requests through the real Agent Trust Border admission kernel.">
+    <meta name="theme-color" content="#07111f">
+    <title>Agent Trust Border — Executable Request Lab</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Agent Trust Border lab home">
+        <span class="brand-mark" aria-hidden="true">ATB</span>
+        <span>Executable Request Lab</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#lab">Lab</a>
+        <a href="#boundary">Boundary</a>
+        <a href="https://github.com/Lordof2L/agent-trust-border">Source</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="eyebrow"><span class="status-dot"></span> Phase 2 · local executable synthetic lab</div>
+        <h1>Change the request.<br>Watch authority change the verdict.</h1>
+        <p class="lede">
+          This interface calls the real deterministic Python kernel. It creates and
+          independently verifies a new signed receipt, but it never executes the requested action.
+        </p>
+        <div class="truth-strip" aria-label="Truth boundary">
+          <span>Live kernel</span><i>✓</i><span>Signed receipt</span><i>✓</i><span>Action execution</span><i>×</i>
+        </div>
+      </section>
+
+      <section id="lab" class="lab shell">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Bounded request builder</p>
+            <h2>Submit one exact synthetic request.</h2>
+          </div>
+          <p id="health" class="health" role="status">Connecting to the local kernel…</p>
+        </div>
+
+        <div class="preset-row" aria-label="Scenario presets">
+          <button type="button" class="preset" data-resource="sandbox:demo" data-authority="missing" data-evidence="verified">Missing authority</button>
+          <button type="button" class="preset" data-resource="sandbox:demo" data-authority="exact_trusted_grant" data-evidence="verified">Exact grant</button>
+          <button type="button" class="preset" data-resource="production:demo" data-authority="exact_trusted_grant" data-evidence="verified">Production mutation</button>
+          <button type="button" class="preset" data-resource="sandbox:demo" data-authority="consumed_grant_replay" data-evidence="verified">Consumed replay</button>
+          <button type="button" class="preset" data-resource="sandbox:demo" data-authority="missing" data-evidence="unavailable">Evidence unavailable</button>
+        </div>
+
+        <div class="lab-grid">
+          <form id="requestForm" class="request-card">
+            <div class="card-label">Request</div>
+            <label for="resource">Requested resource</label>
+            <select id="resource" name="resource">
+              <option value="sandbox:demo">sandbox:demo</option>
+              <option value="production:demo">production:demo</option>
+            </select>
+
+            <label for="authorityMode">Authority proof</label>
+            <select id="authorityMode" name="authority_mode">
+              <option value="missing">Missing</option>
+              <option value="exact_trusted_grant">Exact trusted one-use grant</option>
+              <option value="consumed_grant_replay">Consumed grant replay</option>
+            </select>
+
+            <label for="evidenceMode">Source evidence</label>
+            <select id="evidenceMode" name="evidence_mode">
+              <option value="verified">Receiver-verified fixture</option>
+              <option value="unavailable">Unavailable</option>
+            </select>
+
+            <div class="request-summary mono">
+              <span>agent</span><strong>demo:agent:deploy-bot</strong>
+              <span>action</span><strong>deploy</strong>
+              <span>max runs</span><strong>1</strong>
+            </div>
+
+            <button id="evaluateButton" class="primary" type="submit">Evaluate exact request</button>
+            <p class="microcopy">Closed demo inputs only. Each evaluation starts from fresh fixture state; the replay preset creates and consumes one grant inside that evaluation.</p>
+          </form>
+
+          <section class="result-card" aria-labelledby="resultTitle">
+            <div class="card-label">Kernel result</div>
+            <div class="result-topline">
+              <span id="verdict" class="verdict idle">READY</span>
+              <span id="receiptVerified" class="verification">Receipt not generated</span>
+            </div>
+            <h3 id="resultTitle">Awaiting a bounded request</h3>
+            <p id="resultStatus" role="status" aria-live="polite">Choose a preset or change the fields, then evaluate.</p>
+
+            <dl class="result-grid">
+              <div><dt>Effective resource</dt><dd id="effectiveResource">none</dd></div>
+              <div><dt>Effective action</dt><dd id="effectiveAction">none</dd></div>
+              <div><dt>Maximum runs</dt><dd id="maxRuns">none</dd></div>
+              <div><dt>Action executed</dt><dd id="actionExecuted" class="safe">false</dd></div>
+              <div><dt>World truth</dt><dd id="worldTruth">OUT_OF_SCOPE</dd></div>
+              <div><dt>Receipt ID</dt><dd id="receiptId" class="mono">none</dd></div>
+            </dl>
+
+            <details id="rawDetails">
+              <summary>Inspect exact JSON result</summary>
+              <pre id="rawResult">No result yet.</pre>
+            </details>
+          </section>
+        </div>
+      </section>
+
+      <section id="boundary" class="boundary shell">
+        <div>
+          <p class="kicker">Truth boundary</p>
+          <h2>Executable admission, not executable deployment.</h2>
+        </div>
+        <div class="boundary-columns">
+          <article>
+            <h3>Proved in this slice</h3>
+            <ul>
+              <li>Browser input reaches the actual Python admission kernel</li>
+              <li>Verdict and scope are computed, not selected by the UI</li>
+              <li>A new DSSE/Ed25519 receipt is independently verified</li>
+              <li>Invalid combinations and malformed commands fail closed</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Still not claimed</h3>
+            <ul>
+              <li>Production trust roots, identity or protocol conformance</li>
+              <li>Real deployment, wallet, tool or remote evidence calls</li>
+              <li>Cross-request replay durability, authentication or public API security</li>
+              <li>World truth, benign intent or future agent behaviour</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <span>Agent Trust Border · Phase 2 executable request lab</span>
+      <span>Synthetic local fixtures · no action execution</span>
+    </footer>
+    <script src="/app.js"></script>
+  </body>
+</html>

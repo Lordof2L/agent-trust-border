@@ -34,6 +34,17 @@ No upstream source code is vendored. Direct runtime packages are pinned in
 The internal research predates this submission. The competition-period work is
 the bounded composition, implementation, tests, evidence package, and demo.
 
+## New Phase-2 work
+
+- a local-only untrusted HTTP adapter outside the trusted kernel;
+- a closed browser request builder for five synthetic admission paths;
+- newly computed and independently verified receipts returned to the browser;
+- fail-closed HTTP/schema tests and an independent web-operator audit.
+
+Phase 2 does not add a live protocol adapter, production identity, remote trust
+resolver or requested-action executor. Its interface is a local executable
+demonstration, not a production or publicly hosted gateway.
+
 ## Claims not made
 
 No world-first claim. No proof of benign agent intent, issuer honesty, world
