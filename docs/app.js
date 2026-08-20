@@ -43,14 +43,17 @@ const steps = [
 
 const short = (value) => `${value.slice(0, 9)}…${value.slice(-4)}`;
 const text = (id, value) => { document.getElementById(id).textContent = value; };
+const tabs = Array.from(document.querySelectorAll(".step-tab"));
 
-function selectStep(index) {
+function selectStep(index, { focus = false } = {}) {
   const item = steps[index];
-  document.querySelectorAll(".step-tab").forEach((tab, tabIndex) => {
+  tabs.forEach((tab, tabIndex) => {
     const active = tabIndex === index;
     tab.classList.toggle("active", active);
     tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
   });
+  document.getElementById("decisionPanel").setAttribute("aria-labelledby", tabs[index].id);
   const verdict = document.getElementById("verdict");
   verdict.textContent = item.verdict;
   verdict.className = `verdict ${item.verdict.toLowerCase()}`;
@@ -63,8 +66,21 @@ function selectStep(index) {
   text("receiptId", short(item.receipt));
   text("challengeId", short(item.challenge));
   document.getElementById("receiptLink").href = `evidence/${item.file}`;
+  if (focus) tabs[index].focus();
 }
 
-document.querySelectorAll(".step-tab").forEach((tab) => {
+tabs.forEach((tab) => {
   tab.addEventListener("click", () => selectStep(Number(tab.dataset.step)));
+  tab.addEventListener("keydown", (event) => {
+    const current = Number(tab.dataset.step);
+    let next = null;
+    if (event.key === "ArrowRight") next = (current + 1) % tabs.length;
+    if (event.key === "ArrowLeft") next = (current - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") next = 0;
+    if (event.key === "End") next = tabs.length - 1;
+    if (next !== null) {
+      event.preventDefault();
+      selectStep(next, { focus: true });
+    }
+  });
 });
