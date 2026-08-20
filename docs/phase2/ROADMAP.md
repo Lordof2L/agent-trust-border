@@ -5,7 +5,11 @@ not begin until the earlier slice has a behavior-level receipt.
 
 ## P2.1 — Executable request lab
 
-Status: implementation and operator audit in progress.
+Status: complete. The executable slice, tests and audit are published on
+`main`. The frozen audit preserves three historical pre-fix accessibility
+failures; the corrective source is deployed and byte-verified, while the
+post-fix interactive recheck remains blocked by the disconnected Browser
+backend.
 
 Browser controls call the real synthetic kernel and receive an independently
 verified signed result. State is intentionally fresh per HTTP evaluation and

@@ -1,6 +1,6 @@
 # Agent Trust Border Phase 2 — executable request lab
 
-Status: acceptance contract frozen before implementation
+Status: acceptance contract frozen before implementation; P2.1 complete
 
 ## Target
 
